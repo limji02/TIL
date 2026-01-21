@@ -20,4 +20,15 @@ print(make_sum(100,200))
 
 # [번외] print() 함수는 반환값이 없다.
 result2 = print(100)
-print(result2)
+print(result2) #None
+
+def my_func()
+    """
+    이 함수는 호출되면 터미널에 hello를 출력하는 함수
+    """
+    print('hello')
+
+result3 = my_func()
+print(result3) 
+#hello
+#None

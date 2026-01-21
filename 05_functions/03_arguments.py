@@ -30,7 +30,6 @@ def greet(name, age):
 
 greet(name='Dave', age=35)  # 안녕하세요, Dave님! 35살이시군요.
 greet(age=35, name='Dave')  # 안녕하세요, Dave님! 35살이시군요.
-greet('Dave', 35)
 greet(age=35, 'Dave')  # Positional argument cannot appear after keyword arguments
 
 
@@ -61,6 +60,7 @@ print_info(name='Eve', age=30)  # {'name': 'Eve', 'age': 30}
 
 
 # 인자의 모든 종류를 적용한 예시
+# 위치 인자, 기본 인자 값, 키워드 인자, 임의의 인자 목록, 임의의 키워드 인자 목록
 def func(pos1, pos2, default_arg='default', *args, **kwargs):
     print('pos1:', pos1)
     print('pos2:', pos2)

@@ -1,0 +1,12 @@
+# requests 패키지 사용 예제
+# requests 패키지 설치해야 정상 동작
+
+import requests
+
+# 2026년도 공휴일 정보 API
+url = "https://date.nager.at/api/v3/publicholidays/2026/KR"
+
+# url 주소에 요청을 보내서 응답 데이터를 받아 딕셔너리로 변경하는 코드
+# 실행하는 방법은 해당 폴더 주소에 파일명.py
+response = requests.get(url).json()
+print(response)

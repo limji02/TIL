@@ -81,3 +81,5 @@ print(my_list)  # [1, 2, 3, 100]
 # sort(내림차순 정렬)
 my_list.sort(reverse=True)
 print(my_list)  # [100, 3, 2, 1]
+
+

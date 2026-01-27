@@ -28,11 +28,11 @@ def outer_func():
 
     def inner_func(y):
         z = 'L'
-        print(x, y, z)  # ??
+        print(x, y, z)  # E, P, L
 
     inner_func('P')
-    print(x, y)  # ??
+    print(x, y)  # E E
 
 
 outer_func()
-print(x, y)  # ??
+print(x, y)  # G G

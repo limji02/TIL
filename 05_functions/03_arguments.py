@@ -12,13 +12,13 @@ greet('Alice')  # TypeError: greet() missing 1 required positional argument: 'ag
 
 
 # 2. Default Argument Values
-def greet(name, age=20):
+def greet(name, age=30):
     print(f'안녕하세요, {name}님! {age}살이시군요.')
 
 
 greet('Bob')  # 안녕하세요, Bob님! 30살이시군요.
 greet('Charlie', 40)  # 안녕하세요, Charlie님! 40살이시군요.
-
+greet(40, 'Charlie') # 안녕하세요, 40님! Charlie살이시군요.
 
 ######################################################################## 
 
@@ -30,8 +30,8 @@ def greet(name, age):
 
 greet(name='Dave', age=35)  # 안녕하세요, Dave님! 35살이시군요.
 greet(age=35, name='Dave')  # 안녕하세요, Dave님! 35살이시군요.
-greet(age=35, 'Dave')  # Positional argument cannot appear after keyword arguments
-
+# greet(age=35, 'Dave')  # Positional argument cannot appear after keyword arguments
+greet('Dave', age=35)
 
 ######################################################################## 
 

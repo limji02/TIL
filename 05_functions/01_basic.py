@@ -22,7 +22,7 @@ print(make_sum(100,200))
 result2 = print(100)
 print(result2) #None
 
-def my_func()
+def my_func():
     """
     이 함수는 호출되면 터미널에 hello를 출력하는 함수
     """

@@ -1,138 +1,181 @@
-# TIL
---- 
+# TIL * limji02
 
-> **Python - Basic syntax 1** 
+## **Python - Basic syntax 1** 
 
-평가 : 표현식을 계산하여 그 결과인 '값'을 만들어내는 과정
-값이 안남으면 표현식이 아니라 문장
+**평가** : 표현식을 계산하여 그 결과인 '값'을 만들어내는 과정, 값이 안남으면 표현식이 아니라 문장
 
-변수 : 값을 나중에 다시 사용하기 위해, 그 값에 붙여주는 고유한 이름 / 특정 객체를 가리키는 이름표
+**변수** : 값을 나중에 다시 사용하기 위해, 그 값에 붙여주는 고유한 이름 / 특정 객체를 가리키는 이름표
 
-변수 할당 : 표현식이 만들어 낸 값에 이름을 붙이는 과정
+**변수 할당** : 표현식이 만들어 낸 값에 이름을 붙이는 과정
 
-재할당 : 만약 변수명이 이전에 다른 객체를 가리키고 있었다면, 그 연결은 끊어지고 새로운 객체와의 연결만 남음
+**재할당** : 만약 변수명이 이전에 다른 객체를 가리키고 있었다면, 그 연결은 끊어지고 새로운 객체와의 연결만 남음
 
-타입 : 변수나 값이 가질 수 있는 데이터의 종류
+**타입** : 변수나 값이 가질 수 있는 데이터의 종류  
 타입은 '값'과 '연산자'로 구분한다.
 
-메모리의 모든 위치에는 그 위치를 고유하게 식별하는 메모리 주소가 존재
-값+타입+메모리 주소 정보를 묶은 것을 객체라고 부름
+**메모리 주소** : 메모리의 모든 위치에는 그 위치를 고유하게 식별하는 메모리 주소가 존재  
 
-Numeric types
-    - int, float, complex
+**객체** : 값+타입+메모리 주소 정보를 묶은 것
 
-Text types
-    - str
-    문자들의 순서가 있는 **변경 불가능**한 **시퀀스** 자료형
+**Numeric types** : int, float, complex
 
-Squence types
-    - str, list, tuple, range
-    여러 데이터가 순서대로 일렬로 늘어선 자료구조
-    정렬이 아님
-    인덱스 : 값 위치 고유 번호 0번부터~ 
-    * 음수 인덱스도 지원 ! 마지막 값은 -1
-    my_sequence[start : stop(포함x) : step(간격)]
-    거꾸로 [::-1]
-    슬라이싱
-    길이 len() 구하기 가능
-    반복문
+**Text types** : str  -> **변경 불가능**한 **시퀀스** 자료형
+
+**Squence types** : str, list, tuple, range  
+여러 데이터가 순서대로 일렬로 늘어선 자료구조 (정렬이 아님)  
+**인덱스** : 값 위치 고유 번호 (0번 부터)  
+음수 인덱스도 활용 -> 마지막 값은 [-1]  
+```my_sequence[start : stop(포함x) : step(간격)]```  
+거꾸로 [::-1]  
+슬라이싱  
+길이 len() 구하기 가능  
+반복문
     
 
-Non-sequence types
-    - set, dict
+**Non-sequence types** : set, dict
 
-기타
-    - Boolean, None, Function
+**기타** : Boolean, None, Function
 
-> **Python - Version control1**
+<br>
 
-CLI
-: Command Line Interface
+## **Python - Version control1**
 
-Git
-: 분산 버전 관리 시스템
- - Working Directory, Staging Area, Repository
+CLI : Command Line Interface
 
+Git : 분산 버전 관리 시스템  
+Working Directory, Staging Area, Repository
 
----
-> **Python - Basic Syntax2**
+<br>
 
-문자열, 튜플, range 불변성! 리스트, 딕셔너리, 셋은 가변성!
+## **Python - Basic Syntax2**
+
+문자열, 튜플, range 불변성!   
+리스트, 딕셔너리, 셋은 가변성!
 
 **list**
-- 여러 개의 값을 1.순서대로 저장하는, 2.변경 가능한 시퀀스 자료형
+- 여러 개의 값을 1.순서대로 저장하는, 2.변경 가능한(mutable) 시퀀스 자료형
+- 중첩 리스트 접근
 my_list = [ 1, 'a', 2, [1,2,'3']]
 - 인덱싱, 슬라이싱, 길이
 
-인덱싱으로 값 수정 가능, 슬라이싱으로 여러 값 한번에 바꾸기도 가능하다.
-
 ```python
 my_list = [1, 2, 3, 4, 5]
-my_list[1] = 'two'
-my_list[2:4] = ['three', 'four']
+# 인덱싱으로 값 수정 가능
+my_list[1] = 'two' # [1, 'two', 3, 4, 5]
+# 슬라이싱으로 여러 값 한번에 바꾸기
+my_list[2:4] = ['three', 'four'] # [1, 2, 'three', 'four', 5]
 ```
+<br>
 
 **tuple**
-- 여러 개의 값을 1.순서대로 저장하는, 2.변경 불가능한 시퀀스 자료형 
+- 여러 개의 값을 1.순서대로 저장하는, 2.변경 불가능한 시퀀스 자료형
+- 리스트와 비슷하지만, 한번 만들어지면 절대 수정할 수 없다. 
 my_tuple = (1,) *단일 요소 튜플을 만들 때는 반드시 후행 쉼표를 사용해야 한다.
 - 인덱싱, 슬라이싱, 길이
 
+- 튜플의 값 교환? 튜플의 패킹과 언패킹에 대해 이해하기
+
+```python
+
+x, y = 1, 2
+# 내부 동작 : (1, 2)라는 튜플을 생성한다. 
+
+x, y = y, x
+# 우변을 좌변보다 먼저 처리한다.
+# y, x를 먼저 일어 임시 튜플 (2, 1)을 만든다. -> 안전하다! 원래 변수 x, y와는 별개의 독립적인 메모리 공간에 존재하기 때문이다. 나중에 좌변의 x값이 바뀌더라도, 복사된 값은 영향 받지 않고 그대로 유지. 튜플같은 중간 매개체가 없다면, x를 바꾸는 순간 원래의 x값이 사라져 y에게 줄 값이 없어지게 된다.
+# 우변 (2, 1)에서 값을 하나씩 꺼내 왼쪽 변수에 다시 할당한다.
+# 2 -> x에게 새로부여, 1-> y에게 새로 부여
+
+# 튜플이 수정된 것이 아니며, 변수 x와 y가 가리키는 대상(메모리 주소)이 바뀐 것이다. 
+# 왜 안전한가? 오른쪽에서 복사본(튜플)을 미리 만들어두기 때문에, x에 값을 넣는 순간 원래 x값이 사라져도 상관없기 때문이다.
+```
+
+<br>
+
 **range**
 - 연속된 정수 시퀀스를 생성하는, 2.변경 불가능한 자료형
-- 주로 반복문과 함께 사용, 특정 횟수만큼 코드 반복 실행
-range(Start, stop, step)
-*매개변수가 하나면 stop으로 인식한다. start는 0, step은 1 기본 설정.
-range(5) #0,1,2,3,4
-list로 형변환시 내부 값 확인 가능!
+- 주로 반복문과 함께 사용, 특정 횟수만큼 코드 반복 실행   
+```range(Start, stop, step)```   
+*매개변수(인자)가 하나면 stop으로 인식한다.   
+start는 0, step은 1 기본 설정.  
+```range(5) #0,1,2,3,4  ```  
+list()로 형변환시 내부 값 확인 가능!
+
+<br>
 
 **dict**
-- 키, 값의 쌍으로 이루어진 1.순서와 중복이 없는 2.변경 가능한 자료형
-my_dict = {'key':'value', 'apple':12}
-- key는 중복될 수 없음, 변경 불가능한 자료형만 가능. list,dict은 불가능함. tuple은 가능함.
-- 값 접근 방법
+- 키, 값의 쌍으로 이루어진 1.순서와 중복이 없는 2.변경 가능한 자료형  
+```my_dict = {'key':'value', 'apple':12}```  
+- key는 중복될 수 없음, 변경 불가능한 자료형만 가능.(list,dict은 불가능함. tuple은 가능함.)  
+```python
+# 값 접근 방법  
 my_dict['key'] #'value'
-- 값 추가 및 변경
+# 값 추가 및 변경
 my_dict['new_key'] = 'new_value'
 my_dict['key'] = 'value_2'
+```
+
+<br>
 
 **set**
 - 1.순서와 중복이 없는 2.변경 가능한 자료형
+```python
 my_set_1 = set()
 my_set_2 = {1,2,3}
-- 집합 활용 효과적
-합집합 a|b
+# 집합 활용 효과적
+'''합집합 a|b
 차집합 a-b
-교집합 a&b
+교집합 a&b '''
+```
 
-**None**
-- 값이 없음을 표현하는 데이터 타입
+<br>
 
-**Boolean**
-- 참과 거짓의 값만 가진 데이터 타입
-is_
-> ==
+**None**  
+값이 없음을 표현하는 데이터 타입
 
-**collection**
-- 여러 개의 값을 하나로 묶어 관리하는 자료형을 통칭하는 말
+**Boolean**  
+참과 거짓의 값만 가진 데이터 타입  
+
+**collection**  
+- 여러 개의 값을 하나로 묶어 관리하는 자료형을 통칭하는 말  
 str, list, tuple, range, set, dict
 
+| 자료형 | 변경 가능 (Mutable) | 순서 존재 (Ordered) | 특징 및 용도 |
+| :--- | :---: | :---: | :--- |
+| **문자열 (str)** | **X** | **O** | 텍스트 데이터, 튜플처럼 수정 불가능 |
+| **리스트 (list)** | **O** | **O** | 가장 범용적인 가변 시퀀스 |
+| **튜플 (tuple)** | **X** | **O** | 값의 보호, 값 교환 및 백업용 |
+| **세트 (set)** | **O** | **X** | 중복 제거, 집합 연산 |
+| **딕셔너리 (dict)** | **O** | **X or O** | 키-값 쌍 저장 (3.7+ 순서 유지) |
+
+---
+<br>
+
 **형변환**
-**암시적 형변환**
-- Boolean과 Numeric Type에서만 가능
-True -> 1, False -> 0으로 ...
-**명시적 형변환**
-int(), str(), float()
-list("abc") -> ['a', 'b', 'c']
-tuple([1,2]) -> (1, 2)
-set([1,2,2]) -> {1,2}
-!! 세트는 중복 불가 !!
 
-int('3.5') -> 바로 불가능. float('3.5')이후, 가능.
+**암시적 형변환**  
+- 정수와 실수의 연산은 실수형으로, 불리언과 정수의 연산은 정수형으로, 불리언간 연산이 실수형으로...  
+- Boolean과 Numeric Type에서만 가능  
+(True -> 1, False -> 0)  
 
-**산술 연산자**
- -, +, -, *, /, //, %, **
 
-**복합 연산자**
+**명시적 형변환**  
+int(), str(), float()  
+```python
+list("abc") # ['a', 'b', 'c']
+tuple([1,2]) # (1, 2)
+set([1,2,2]) # {1,2}
+# !! 세트는 중복 불가 !!
+
+int('3.5') # 바로 불가능. float('3.5')이후, 가능.
+```
+
+<br>
+
+**산술 연산자**  
+ -, +, -, *, /, //, %, **  
+
+**복합 연산자**  
 ```python
 a += b #a=a+b
 a -= b #a=a-b
@@ -142,34 +185,814 @@ a //=b #a=a//b
 a %= b #a=a%b
 a **= b #a=a**b
 ```
+  
 
-**비교 연산자**
-<,>,=,==,!=,is,is not
-==는 동등성 판별, 값이 같은지 비교
-is는 식별성 판별, 객체 자체가 같은지 비교 (메모리 주소)
+**비교 연산자**  
+<,>,=,==,!=,is,is not  
+==는 동등성 판별, 값이 같은지 비교  
+is는 식별성 판별, 두 변수가 완전히 동일한 메모리 주소의 객체를 가리키는지, 즉, 정체성이 같은지를 확인  
+is 연산자는 주로 싱글턴 객체를 비교할 때 사용함  
+ - singleton 객체란?  특정 값에 대해 파이썬 전체에서 단 하나의 객체만 생성되어 재사용되는 특별한 객체 (e.g. None, True, False)  
 
-**논리 연산자**
-and, or, not
 
-**단축 평가**
-논리 연산에서 두 번째 피연산자를 평가하지 않고 결과를 결정하는 동작
-비어있거나 없다는 느낌의 값은 False
+**논리 연산자**  
+and, or, not  
 
-**멤버십 연산자**
-in, not in
+**단축 평가**  
+논리 연산에서 두 번째 피연산자를 평가하지 않고 결과를 결정하는 동작  
+비어있거나 없다는 느낌의 값은 False  
 
-**시퀀스형 연산자**
-시퀀스 자료형(문자열, 리스트, 튜플)에 사용
-+은 연결, *은 반복
+**멤버십 연산자**  
+in, not in  
+
+**시퀀스형 연산자**  
+시퀀스 자료형(문자열, 리스트, 튜플)에 사용  
++은 연결, *은 반복  
+
+<br>
+
+### 슬라이싱 문제 [ws_1_c]
+
+```python
+# password 문자열에서 index 번호로 슬라이싱하기
+password = "In the bustling city, where life is a constant race against time, uoy often find yourself wondering if there's a shortcut to success. The vibrant lights of the cityscape illuminate the night, casting shadows on the short-lived dreams of those who seek fortune. As you navigate through the crowded streets, you realize the deen for guidance, like a compass pointing python. You need direction in this chaotic journey called life."
+# 28번째부터 35번째까지
+first_char = password[28:36]
+# 113번째부터 총 5글자
+second_word = password[113:118]
+# 66번째부터 68번째 글자 뒤집어서
+third_word = password[66:69][::-1] # 혹은 [68:65:-1] 또한 가능 # 주의 [66:69:-1]는 불가능
+# 322번째부터 총 4글자 뒤집어서 
+fourth_word = password[322:327][::-1]
+# 365번째부터 작성된 'python'
+fifth_word = password[365:371]
+
+my_str = f'{first_char}{second_word} {third_word}{fourth_word} "{fifth_word}".'
+print(my_str)
+# life is short you need "python". 
+```
+### Escape Sequence - 문자열 안의 특수 기호 활용하기
+
+| 이스케이프 시퀀스 | 기능 | 설명 |
+| :--- | :--- | :--- |
+| `\n` | 줄바꿈 | 커서를 다음 줄로 이동 (Newline) |
+| `\t` | 탭 | 일정 간격만큼 수평 이동 (Tab) |
+| `\\` | 백슬래시 | 문자 `\` 자체를 표현 |
+| `\'` | 작은따옴표 | 문자 `'` 자체를 표현 |
+| `\"` | 큰따옴표 | 문자 `"` 자체를 표현 |
+| `\r` | 캐리지 리턴 | 커서를 현재 줄의 맨 앞으로 이동 |
+| `\b` | 백스페이스 | 커서를 한 칸 뒤로 이동 |
+
+### Raw String
+```python
+# 일반 문자열: \n이 줄바꿈으로 작동
+path = "C:\new_folder\test.txt" 
+
+# Raw String: 보이는 그대로 출력
+path = r"C:\new_folder\test.txt"
+```
+
+### print() 함수 파라미터 활용하기
+
+``` print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)```
+
+| 파라미터 | 기본값 | 기능 설명 | 실무 활용 팁 |
+| :--- | :--- | :--- | :--- |
+| **`sep`** | `' '` | 여러 인자를 출력할 때 사이사이에 들어갈 구분자를 설정합니다. | CSV 형식(`,`)이나 날짜(`-`) 등을 출력할 때 유용합니다. |
+| **`end`** | `'\n'` | 출력이 끝나는 지점에 추가할 문자를 설정합니다. | 기본 줄바꿈을 막고 한 줄로 이어 쓰고 싶을 때 사용합니다. |
+| **`file`** | `sys.stdout` | 출력을 표시할 매체(스트림)를 지정합니다. | 화면이 아닌 특정 텍스트 파일에 로그를 기록할 때 사용합니다. |
+| **`flush`** | `False` | 버퍼링된 데이터를 즉시 출력할지 결정합니다. | 실시간 진행률 표시나 스트리밍 데이터 출력 시 `True`로 설정합니다. |
+
+
+```python
+# 1. sep 활용: 리스트 요소를 화살표로 연결
+print("Python", "Java", "C++", sep=" → ") 
+# 결과: Python → Java → C++
+
+# 2. end 활용: 반복문 결과 한 줄로 출력
+for i in range(5):
+    print(i, end=", ")
+# 결과: 0, 1, 2, 3, 4, 
+
+# 3. flush 활용: 실시간 카운트다운 (잠시 대기 없이 즉시 반영)
+import time
+print("발사 3초 전...", end="", flush=True)
+time.sleep(1)
+
+```
+
+### list 값으로 dict 만들기 [ws_2_4]
+```python
+
+# 데이터 저장할 빈 dict 생성 
+information = dict() # 혹은 information = {}
+
+# 각각 작가와 책 이름이 담긴 리스트
+authors = ['김시습', '허균', '남영로', '작자 미상', '임제', '박지원']
+books = [
+    ['장화홍련전', '가락국 신화', '온달 설화'],
+    ['금오신화', '이생규장전', '만복자서포기'],
+    ['수성지', '백호집', '원생몽유록'],
+    ['홍길동전', '장생전', '도문대작'],
+    ['옥루몽', '옥련몽'],
+]
+
+# 키와 값을 인덱스 번호 활용해 딕셔너리에 저장
+information[authors[0]] = books[1]
+information[authors[1]] = books[3]
+information[authors[2]] = books[4]
+information[authors[3]] = books[0]
+information[authors[4]] = books[2]
+
+# f-str 써서 보여주기
+for key in information:
+    print(f'{key}: {information[key]}')
+```
+
+### 깊은 복사와 indexing 접근 [ws_2_5]
+
+1. 얕은 복사
+    - 껍데기만 새로 만드는 복사
+    - 중첩 리스트 경우, 내용물까지 완전히 새것으로 만들지 못하고 기존의 주소값을 그대로 가져온다. (가장 바깥쪽 리스트는 별개의 객체가 되지만, 그 내부의 참조형 데이터는 원본과 공유한다.)
+    - copy() 메서드, 슬라이싱[:], lsit()함수 
+2. 깊은 복사
+    - 완전한 복제본을 만든다.
+    - 중첩 리스트 경우에도 모든 것을 새로 생성하여 독립적인 공간에 저장한다.
+    - copy 모듈의 deepcopy()함수
+
+```python
+# 도서 목록을 정리하던 중, 제목이 잘못 저장된 경우를 발견하여 수정 후 출력하려고 한다.
+
+catalog = [
+    ['시간의 틈', '반짝임의 어둠', '망각의 경계'],
+    ['연기의 수수께끼', '장면의 고백', '드라마의 그림자'],
+    ['황금의 칼날', '비열한 간신', '무명의 영웅'],
+    ['성공의 열쇠', '내면의 변화', '목표의 달성'],
+]
+
+# 1. 혹시 모를 사태 대비하여 새로운 변수에 catalog와 같은 값을 할당한다. 얕은 복사로 인한 오류를 범하지 않도록 주의한다.
+
+# map(함수, 반복가능한객체) -> 반복 객체의 각 요소에 이 함수를 모두 적용해줘
+# catalog의 요소인 리스트를 하나씩 꺼내어 list()함수를 씌운다.
+# 내부의 각 리스트가 새로운 리스트 객체로 복사된다.
+# 만약 리스트가 3중 이상으로 겹쳐 있다면 이 방법 또한 앝은 복사 문제가 나타날 것...
+# import copy 후, backup_catalog = copy.deepcooy(catalog)로 해결 가능!
+backup_catalog = list(map(list, catalog))
+
+# catalog의 3번째 인덱스를 통째로 새로운 리스트로 교체한다.
+# 원본은 바뀌었지만, 백업본은 바뀌지 않았다.
+# 이런 식으로 통째로 새로운 리스트로 교체하는 경우에는, 위에서 .copy() 등을 통해 얕은 복사를 하더라도, 문제가 발생하지 않는다. 하지만 catalog[3][0] = '성공을 향한 한 걸음' 이런 식으로 내부의 값 하나씩 수정한다면, 얕은 복사 시에 백업본도 같이 변하게 된다. 물론, 지금 위의 복사 방법은 이중 중첩 리스트까지는 깊은 복사에 해당되므로 하나씩 바꾸더라도 안전하다.
+catalog[3] = ['성공을 향한 한 걸음', '내 삶의 변화', '목표 달성의 비밀']
+''' 
+도서 제목 '성공의 열쇠', '내면의 변화', '목표의 달성' 을 각각
+'성공을 향한 한 걸음', '내 삶의 변화', '목표 달성의 비밀' 가 되도록 변경하시오.
+'''
+
+print('catalog와 backup_catalog를 비교한 결과')
+# 식별 연산자로 catalog와 backup_catalog를 비교한 결과를 출력하시오.
+
+print(catalog == backup_catalog)
+
+print('backup_catalog : ')
+print(backup_catalog)
+print()
+
+print('catalog : ')
+print(catalog)
+```
 
 ---
-**Python-Fucntion**
+## **Python-Fucntion**
 
-## 260126
---
-Data Structure 
---
-# ws_5_a.py 
+**함수(Function)**  
+특정 작업을 수행하기 위한 재사용 가능한 코드 묶음  
+재사용성, 가독성, 유지보수성 up!  
+함수 호출 ```function_name(arguments)```
+호출 부분에서 전달된 인자(arguments)는 함수 정의 시 작성한 매개변수에 대입됨  
+
+**함수와 반환값**  
+- print() 함수는 반환값(return)이 없다. None 반환.  
+
+**매개변수(parameter)**  
+함수 정의 시, 함수가 받을 값을 나타내는 변수  
+
+**인자(argument)**  
+함수를 호출할 때, 실제로 전달되는 값  
+1. 위치 인자
+2. 기본 인자
+3. 키워드 인자  
+호출 시 키워드 인자는 위치 인자 뒤에 위치해야 함!  
+4. 임의의 인자 목록 *args  
+여러 개의 인자를 tuple로 처리  
+5. 임의의 키워드 인자 목록 **kwargs  
+여러 개의 인자를 dict로 묶어 처리  
+
+<br>
+
+**재귀함수(recursion)**
+함수 내부에서 자기 자신을 호출하는 함수  
+팩토리얼  
+종료 조건 필수  
+Tree구조나 복잡한 알고리즘(퀵 정렬 등) 구현 시 가독성 good  
+```python
+def factorial(n):
+    # 종료 조건: n이 0이면 1을 반환
+    if n == 0:
+        return 1
+    else:
+        # 재귀 호출: n과 n-1의 팩토리얼을 곱한 결과를 반환
+        # 재귀 함수는 실행 시, 메모리의 Stack 이라는 공간에 차곡차곡 쌓인다. 
+        return n * factorial(n - 1)
+
+# 팩토리얼 계산 예시
+print(factorial(5))  # 120
+```
+
+**내장 함수(Bulit-in)**  
+import 없이 쓸 수 있는 기본 내장 함수  
+```python
+numbers = [1, 2, 3, 4, 5]
+
+print(numbers)  # [1, 2, 3, 4, 5]
+print(len(numbers))  # 5
+print(max(numbers))  # 5
+print(min(numbers))  # 1
+print(sum(numbers))  # 15
+print(sorted(numbers, reverse=True))  # [5, 4, 3, 2, 1]
+
+```  
+
+**함수와 Scope**  
+- Python의 범위(Scope)를 생성하며, 그 외의 공간인 global scope로 구분
+- 변수 수명주기  
+    1. built-in Scope : 파이썬 실행 이후 끝까지 유지
+    2. global scope : 모듈 호출 이후 or 인터프리터 끝까지 유지
+    3. local scope : 함수 호출 시 생성, 종료까지 유지
+- 이름 검색 규칙 : LEGB rule  
+
+```python
+# LEGB Rule 퀴즈
+x = 'G'
+y = 'G'
+
+
+def outer_func():
+    x = 'E'
+    y = 'E'
+
+    def inner_func(y):
+        z = 'L'
+        print(x, y, z)  # E P L
+
+    inner_func('P')
+    print(x, y)  # E E
+
+
+outer_func()
+print(x, y)  # G G
+
+```
+
+
+**전역 변수**  
+- 변수의 스코프를 전역 범위로 지정하기 위해 사용  
+```python
+num = 0  # 전역 변수
+
+def increment():
+    global num  # num를 전역 변수로 선언
+    num += 1
+
+print(num)  # 0
+increment()
+print(num)  # 1
+
+# ‘global’ 키워드 주의사항 1 - global 키워드 선언 전에는 참조불가
+num = 0
+
+def increment():
+    # SyntaxError: name 'num' is used prior to global declaration
+    print(num)
+    global num
+    num += 1
+
+# ‘global’ 키워드 주의사항 2 - 매개변수에는 global 키워드 사용불가
+num = 0
+
+def increment(num):
+    # SyntaxError: name 'num' is parameter and global
+    global num
+    num += 1
+```
+
+**함수 이름 구성 및 책임**  
+- 동사_명사()  
+- 동사_형용사_명사()  
+- get_명사(), set_명사()  
+- 단일 책임  
+
+<br>
+
+**Packing&Unpacking**  
+
+- **Packing** : 여러 개의 데이터를 하나의 컬렉션(튜플)으로 모아 담는 과정  
+```python
+packed_values = 1, 2, 3, 4, 5
+print(packed_values)  # (1, 2, 3, 4, 5)
+
+# ‘*’ 을 활용한 패킹 (함수 매개변수 작성 시)
+def my_func(*args):
+    print(args)  # (1, 2, 3, 4, 5)
+    print(type(args))  # <class 'tuple'>
+
+my_func(1, 2, 3, 4, 5)
+
+# ‘**’ 을 활용한 패킹 (함수 매개변수 작성 시)
+def my_func2(**kwargs):
+    print(kwargs)  # {'a': 1, 'b': 2, 'c': 3}
+    print(type(kwargs))  # <class 'dict’>
+
+my_func2(a=1, b=2, c=3)
+```
+- **Unpacking** : 컬렉션에 담겨있는 데이터들을 개별 요소로 펼쳐 놓는 과정  
+시퀀스 언패킹 또는 다중 할당이라고 부름  
+```python
+packed_values = 1, 2, 3, 4, 5
+
+# 언패킹
+a, b, c, d, e = packed_values
+print(a, b, c, d, e)  # 1 2 3 4 5
+
+# ‘*’ 을 활용한 언패킹 (함수 인자 전달)
+def my_function(x, y, z):
+    print(x, y, z)
+
+names = ['alice', 'jane', 'peter']
+my_function(*names)  # alice jane peter
+
+# ‘**’을 활용한 언패킹 (딕셔너리 -> 함수 키워드 인자)
+def my_function(x, y, z):
+    print(x, y, z)
+
+my_dict = {'x': 1, 'y': 2, 'z': 3}
+my_function(**my_dict)  # 1 2 3
+```
+
+**Lamda 표현식**  
+- 한 줄로 간단한 함수를 정의, 함수 이름은 익명  
+```python
+# 람다 표현식 적용 전
+def addition(x, y):
+    return x + y
+
+# 람다 표현식 적용 후
+lambda x, y: x + y
+
+"""
+람다 표현식 활용 (with sorted 함수)
+sorted() 함수는 리스트를 정렬해주며, key라는 매개변수에 함수를 전달하여 
+"무엇을 기준으로 정렬할지"를 지정할 수 있습니다. 
+이때 간단한 기준을 제시하기 위해 lambda를 사용하는 것이 매우 효과적입니다.
+
+예시: 학생들의 점수를 나이순으로 정렬하기
+학생 데이터가 (이름, 나이) 형태의 튜플로 묶여있는 리스트가 있다고 가정해 봅시다
+
+# 목표: 학생들을 '나이'가 어린 순서대로 정렬하고 싶다!
+"""
+# 학생 데이터가 (이름, 나이) 형태의 튜플로 묶여있는 리스트
+students = [('지민', 25), ('서준', 20), ('민우', 30)]
+
+# 1. lambda 미사용
+# 정렬 기준 함수를 굳이 정의해야 함
+# student
+def get_age(student):
+    return student[1]
+
+# sorted 함수의 key 매개변수에 우리가 만든 get_age 함수를 전달
+result = sorted(students, key=get_age)
+print(result)  # [('서준', 20), ('지민', 25), ('민우', 30)]
+
+# 2. lambda 사용
+"""
+get_age처럼 간단하고 한 번만 쓸 함수를 굳이 따로 정의할 필요 없이, lambda로 즉석에서 만들어 전달할 수 있습니다.
+key=lambda student: student[1]
+-> "정렬할 때 각 데이터를 student라고 부를게."
+-> "그리고 그 데이터의 1번 인덱스 값(나이)을 기준으로 삼아줘."
+"""
+result = sorted(students, key=lambda student: student[1]) # student는 임시 상자...
+print(result)  # [('서준', 20), ('지민', 25), ('민우', 30)]
+```
+
+
+### **재귀 함수 활용 예시**  
+```python
+# 복잡하게 꼬인 리스트 평탄화
+# 약 리스트가 [1, [2, [3, 4], 5], 6]처럼 무작위로 겹쳐있을 때, 모든 숫자를 꺼내서 하나의 일렬 리스트로 만들고 싶다면 재귀가 가장 깔끔한 정답!
+
+# 함수 정의 data 받아 처리
+def flatten(data):
+    # 빈 리스트 준비
+    result = []
+    # data에서 재료 꺼내 보기 반복문
+    for item in data:
+        if isinstance(item, list):  # 만약 리스트라면?
+            result.extend(flatten(item))  # 재귀! 리스트 안에 리스트가 있다는 뜻이므로, 다시 flatten 함수를 불러서 안으로 들어감
+        else:
+            result.append(item)  # 리스트가 아니라면? 결과 리스트에 담음
+    return result
+
+nested_list = [1, [2, [3, 4], 5], 6]
+print(flatten(nested_list))  # [1, 2, 3, 4, 5, 6]
+```
+
+## **Python Module**
+
+**모듈**  
+한 파일로 묶인 변수와 함수의 모음  
+특정한 기능을 하는 코드가 작성된 파이썬 파일  
+- import 모듈명 사용
+모듈명.변수명 or 모듈명.함수명()  
+- from 모듈명 import 변수명, 함수명 사용  
+그냥 바로 변수명 or 함수명()쓰면 됨  
+- as 키워드 사용하여 별칭 부여 가능  
+- 직접 정의한 모듈 사용 가능  
+
+<br>
+
+**패키지**  
+연관된 모듈들을 하나의 디렉토리에 모아 놓은 것  
+- 직접 패키지 만들어 사용 가능  
+```python
+from 폴더명.패키지명(그 아래 폴더명) import 모듈명
+모듈명.함수명()
+```
+
+- 외부 패키지 다운  
+``` $ pip install 패키지명```
+```python
+# requests 패키지 사용 예제
+# requests 패키지 설치해야 정상 동작
+
+import requests
+
+# 공휴일 정보 API
+url = "https://date.nager.at/api/v3/publicholidays/2026/KR"
+
+# URL 주소에 요청을 보내서 응답 데이터를 받아 딕셔너리로 변경하는 코드
+response = requests.get(url).json()
+print(response)
+```
+
+<br>
+
+##  **Control of Flow**  
+
+**제어문(Control Statement)**  
+코드의 실행 흐름을 제어하는 데 사용되는 구문  
+조건에 따라 코드 블록을 실행하거나 반복적으로 코드를 실행  
+1. if문(조건문:참인 경우, 거짓인 경우...)  
+if, else, elif ... if만 써도 가능!
+2. for문(반복문)  
+```python
+# for문 작동 원리
+item_list = ['apple', 'banana', 'coconut']
+
+for item in item_list:  # item: 반복 변수
+    print(item)
+
+
+# 문자열 순회
+country = 'Korea'
+
+for char in country:
+    print(char)
+
+
+# range 순회
+for i in range(5):
+    print(i)
+
+
+# for문 dictionary 순회
+my_dict = {
+    'x': 10,
+    'y': 20,
+    'z': 30,
+}
+
+for key in my_dict:
+    print(key)
+    print(my_dict[key])
+
+
+# 인덱스 순회
+numbers = [4, 6, 10, -8, 5]
+
+for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2
+
+print(numbers)
+
+
+# 중첩 반복문
+outers = ['A', 'B']
+inners = ['c', 'd']
+
+for outer in outers:
+    for inner in inners:
+        print(outer, inner)
+
+
+# 중첩 리스트 순회
+elements = [
+    ['A', 'B'], 
+    ['c', 'd'],
+]
+
+# 1
+for elem in elements:
+    print(elem)
+
+# 2
+for elem in elements:
+    for item in elem:
+        print(item)
+
+```
+3. while 문(반복문-참이면 실행 거짓이면 반복 종료)  
+반드시 종료 조건이 필요!  
+
+```python
+# while문 기본 1
+a = 0
+
+while a < 3:
+    print(a)
+    a += 1
+
+
+# while문 기본 2
+input_value = ''
+while input_value != 'exit':  # exit 를 입력하면 반복 종료
+    input_value = input("Enter a value: ")
+    print(input_value)
+
+
+# while문 사용자 입력에 따른 반복
+number = int(input('양의 정수를 입력해주세요.: '))
+
+while number <= 0:
+    if number < 0:
+        print('음수를 입력했습니다.')
+    else:
+        print('0은 양의 정수가 아닙니다.')
+
+    number = int(input('양의 정수를 입력해주세요.: '))
+
+print('잘했습니다!')
+
+```
+4. 반복문 제어 키워드
+ - break : 해당 키워드 만나면 남은 코드 무시하고 죽시 종료
+```python
+# break 키워드 기본
+for i in range(10):
+    if i == 5:
+        break
+    print(i)  # 0 1 2 3 4
+
+
+# break 키워드 예시 (for문)
+# 리스트에서 첫번째 짝수만 찾은 후 반복 종료하기
+numbers = [1, 3, 5, 6, 7, 9, 10, 11]
+found_even = False
+
+for num in numbers:
+    if num % 2 == 0:
+        print('첫 번째 짝수를 찾았습니다:', num)
+        found_even = True
+        break
+
+if not found_even:
+    print('짝수를 찾지 못했습니다')
+
+
+# break 키워드 예시 (while문)
+# 프로그램 종료 조건 만들기
+number = int(input('양의 정수를 입력해주세요.: '))
+
+while number <= 0:
+    if number == -9999:
+        print('프로그램을 종료합니다.')
+        break
+
+    if number < 0:
+        print('음수를 입력했습니다.')
+    else:
+        print('0은 양의 정수가 아닙니다.')
+
+    number = int(input('양의 정수를 입력해주세요.: '))
+print('잘했습니다!')
+```
+   <br>
+   - continue : 해당 키워드 만나면 다음 코드 무시하고 다음 반복을 수행
+
+```python
+# continue 키워드 기본
+for i in range(10):
+    if i % 2 == 0:
+        continue
+    print(i)  # 1 3 5 7 9
+
+
+# continue 키워드 예시
+# 리스트에서 홀수만 출력하기
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for num in numbers:
+    if num % 2 == 0:
+        continue
+    print(num)
+
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for num in numbers:
+    # 만약에 num이 홀수라면 출력 한다.
+    if num % 2 == 1:
+        print(num)
+```
+<br>
+
+**map 함수**
+```map(function, iterable)```  
+반복 가능한 데이터구조의 모든 요소에 함수를 적용하고, 그 결과 값들을 map object로 묶어서 반환  
+- map object : 결과를 하나씩 꺼내 쓸 수 있는 반복 가능한 객체 자료형. 전체 값을 확인하려면 list나 tuple로 형변환 해줘야 함  
+```python
+# map 함수 사용 기본
+numbers = [1, 2, 3]
+result = map(str, numbers)
+
+print(result)  # <map object at 0x00000239C915D760>
+print(list(result))  # ['1', '2', '3']
+
+
+# map 함수 활용 1 - input과 함께 사용
+# 터미널 창에서 1 2 3 입력 (공백 주의)
+numbers1 = input().split()
+print(numbers1)  # ['1', '2', '3']
+
+## 터미널 창에서 1 2 3 입력 (공백 주의)
+numbers2 = list(map(int, input().split()))
+print(numbers2)  # [1, 2, 3]
+
+
+# map 함수 활용 2 - lambda와 함께 사용
+numbers = [1, 2, 3, 4, 5]
+
+def square(x):
+    return x**2
+
+# lambda 미사용
+squared1 = list(map(square, numbers))
+print(squared1)  # [1, 4, 9, 16, 25]
+
+# lambda 사용
+squared2 = list(map(lambda x: x**2, numbers))
+print(squared2)  # [1, 4, 9, 16, 25]
+
+```
+<br>
+
+**zip 함수**  
+```zip(*iterables)```  
+여러 개의 반복 가능한 데이터 구조를 묶어서, 같은 위치에 있는 값들을 하나의 tuple로 만든 뒤 그것들을 모아 zip object로 반환하는 함수  
+- zip object : 짝지어진 결과(tuple)를 하나씩 꺼내 쓸 수 있는 반복 가능한 객체 자료형. 전체 값을 확인하려면 list나 tuple로 형변환 해줘야 함  
+```python
+# zip 함수 사용 기본
+girls = ['jane', 'ashley']
+boys = ['peter', 'jay']
+pair = zip(girls, boys)
+
+print(pair)  # <zip object at 0x000001C76DE58700>
+print(list(pair))  # [('jane', 'peter'), ('ashley', 'jay')]
+
+
+# zip 함수 활용
+kr_scores = [10, 20, 30, 50]
+math_scores = [20, 40, 50, 70]
+en_scores = [40, 20, 30, 50]
+
+for student_scores in zip(kr_scores, math_scores, en_scores):
+    print(student_scores)
+
+# zip 함수 활용 (전치 행렬)
+scores = [
+    [10, 20, 30],
+    [40, 50, 39],
+    [20, 40, 50],
+]
+
+for score in zip(*scores):
+    print(score)
+```
+
+**enumerate 함수**  
+```enumerate(iterable, start=0)```  
+반복 가능 객체의 각 요소에 대해 인덱스와 값을 함께 반환하는 내장함수
+```python
+# enumerate 함수 기본
+fruits = ['apple', 'banana', 'cherry']
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)
+"""
+0 apple
+1 banana
+2 cherry
+"""
+
+# enumerate 함수 활용 1
+# start 인자를 사용하여 인덱스 번호를 1부터 출력
+movies = ['인터스텔라', '기생충', '인사이드 아웃', '라라랜드']
+
+for idx, title in enumerate(movies, start=1):
+    print(f"{idx}위: {title}")
+
+
+# enumerate 함수 활용 2
+# 인덱스 정보를 활용하여 특정 조건에 맞는 요소 찾기
+respondents = ['은지', '정우', '소민', '태호']
+answers = ['', '좋아요', '', '괜찮아요']
+
+for i, response in enumerate(answers):
+    if response == '':
+        print(f"{respondents[i]} 미제출")
+```
+
+**for else**  
+for 루프가 break를 만나 중단되지 않고, 끝까지 정상적으로 완료되었을 때만 else 블록 실행  
+
+```python
+# for-else 구문 기본
+for i in range(5):
+    print(i)
+    if i == 3:
+        # break 문이 실행되면 else 블록은 실행되지 않음
+        print('반복이 중단되었습니다.')
+        break
+else:
+    print('이 메시지는 출력되지 않습니다.')
+
+
+# for-else 구문 활용 1
+# 중복 아이디 찾기 - 찾은 경우
+registered_ids = ['admin', 'user01', 'guest', 'user02']
+id_to_check = 'guest'  # 이미 리스트에 존재하는 아이디
+
+for existing_id in registered_ids:
+    if existing_id == id_to_check:
+        print('이미 사용 중인 아이디입니다.')
+        break  # 중복 아이디를 찾았으므로 확인 절차를 중단
+else:
+    # for 루프가 break로 중단되었기에 이 부분은 실행되지 않음
+    print('사용 가능한 아이디입니다.')
+
+print('아이디 확인 절차를 종료합니다.')
+
+
+# for-else 구문 활용 2
+# 중복 아이디 찾기 - 찾지 못한 경우
+registered_ids = ['admin', 'user01', 'guest', 'user02']
+id_to_check = 'new_user'  # 리스트에 없는 새로운 아이디
+
+for existing_id in registered_ids:
+    if existing_id == id_to_check:
+        print('이미 사용 중인 아이디입니다.')
+        break
+else:
+    # for 루프가 break 없이 마무리 되어 else 블록 실행
+    print('사용 가능한 아이디입니다.')
+
+```
+
+---
+
+## Data Structure  
+
+**데이터 구조**  
+여러 데이터를 효과적으로 사용  
+관리하기 위한 구조 (str, list, dict 등)  
+= 자료구조  
+단순히 데이터를 묶는 것을 넘어, 프로그램의 성능과 효율성, 유지보수성에 큰 영향을 미치는 핵심적인 개념이다.  
+
+**method(메서드)**  
+각 데이터 구조의 메서드를 호출하여 다양한 기능 활용 가능  
+class 내부에 정의되는 함수이며, 각 데이터 타입 별로 다양한 기능을 가진 메서드가 존재한다.  
+
+```데이터 타입 객체.메서드()```  
+
+
+
+# [ws_5_a]
 
 ```python
 N = 9
@@ -537,11 +1360,7 @@ result = capitalize_words("hello, world!")
 print(result)
 ```
 
-## 260127
-
---
-Data structure 2
---
+## **Data structure 2**
 
 1. Dictionary  
 키와 값을 짝지어 저장하는 자료구조
@@ -686,16 +1505,17 @@ set()
 
 # 사물함 [칸 이름] = 채울 내용
 # key가 해당 딕셔너리에 없을 때 -> 새로 추가
-
 d = {'name': 'Gemini'}
 d['country'] = 'USA'  # 'country'라는 칸이 없으므로 새로 만듦
+
 # 결과: {'name': 'Gemini', 'country': 'USA'}
 
 # key가 해당 딕셔너리에 있을 때 -> 덮어쓰기 (수정)
-
 d = {'name': 'Gemini'}
 d['name'] = 'Flash'   # 'name' 칸에 있던 'Gemini'를 빼고 'Flash'를 넣음
+
 # 결과: {'name': 'Flash'}
+
 
 # 반복문 내에서 작동
 

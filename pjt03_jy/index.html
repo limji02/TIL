@@ -1,0 +1,85 @@
+<!-- F301, F302 구현 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본 정보 수정</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* F301: 프로필 사진 스타일링 */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* 원형 출력 [cite: 61] */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 그림자 필수 [cite: 62] */
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">John Doe님의 프로필 페이지</a> <div class="navbar-nav">
+                <a class="nav-link active" href="index.html">기본 정보 수정</a> <a class="nav-link" href="portfolio.html">포트폴리오 수정</a> </div>
+        </div>
+    </nav>
+
+    <div class="container bg-white p-5 shadow-sm rounded">
+        <h2 class="text-center mb-5">기본 정보 수정</h2> <div class="row g-5">
+            <div class="col-md-6 text-center">
+                <h5>프로필 사진</h5> <img src="https://via.placeholder.com/150" alt="Profile" class="profile-img mb-3">
+                
+                <div class="mt-4 text-start">
+                    <h5>자기 소개</h5> <textarea class="form-control mb-2" rows="3" placeholder="안녕하세요 저는 부자가 되고 싶습니다."></textarea> <button class="btn btn-info text-white w-100">Update</button> </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <h5>투자상품 선호도</h5> <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="stock">
+                        <label class="form-check-label" for="stock">주식</label>
+                    </div>
+                    </div>
+
+                <div class="mb-4">
+                    <h5>투자 스타일</h5> <select class="form-select">
+                        <option selected>안정적</option> <option value="1">중립적</option>
+                        <option value="2">공격적</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <h5>관심 종목</h5> <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="it">
+                        <label class="form-check-label" for="it">정보기술</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3">
+                    <label class="form-label">회원 번호</label>
+                    <input type="text" class="form-control bg-light" value="1" readonly> </div>
+                <div class="mb-3">
+                    <label class="form-label">ID</label>
+                    <input type="text" class="form-control bg-light" value="ssafy" readonly> </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="example@example.com"> </div>
+                <div class="mb-3">
+                    <label class="form-label">나이</label>
+                    <input type="number" class="form-control" placeholder="나이를 입력해주세요"> </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

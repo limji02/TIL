@@ -1,0 +1,88 @@
+<!-- F304 구현 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 수정</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .portfolio-header {
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">John Doe님의 프로필 페이지</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="index.html">기본 정보 수정</a>
+                <a class="nav-link active" href="portfolio.html">포트폴리오 수정</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container bg-white p-5 shadow-sm rounded">
+        <div class="portfolio-header">
+            <h2>금융 포트폴리오 수정</h2>
+        </div>
+
+        <form>
+            <div class="mb-4">
+                <h5>저축 성향</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="savingsType" id="type1" checked>
+                    <label class="form-check-label" for="type1">정기예금 선호 (안정형)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="savingsType" id="type2">
+                    <label class="form-check-label" for="type2">적금 선호 (적립형)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="savingsType" id="type3">
+                    <label class="form-check-label" for="type3">투자 병행 (공격형)</label>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="favoriteBank" class="form-label"><h5>주거래(최애) 은행</h5></label>
+                <input type="text" class="form-control" id="favoriteBank" placeholder="예: 싸피은행">
+            </div>
+
+            <div class="mb-4">
+                <label for="retireAge" class="form-label"><h5>희망 은퇴 시기 (연령)</h5></label>
+                <input type="range" class="form-range" min="40" max="80" id="retireAge">
+                <div class="d-flex justify-content-between">
+                    <span>40세</span>
+                    <span>80세</span>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label">안전 자산 비중 (%)</label>
+                    <input type="number" class="form-control" value="70">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">위험 자산 비중 (%)</label>
+                    <input type="number" class="form-control" value="30">
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-secondary me-md-2" type="reset">초기화</button>
+                <button class="btn btn-primary" type="submit">포트폴리오 저장</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

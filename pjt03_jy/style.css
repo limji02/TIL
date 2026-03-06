@@ -1,0 +1,231 @@
+/* =========================================
+   1. 공통 스타일 (모든 페이지 적용)
+   ========================================= */
+
+
+/* 구글 폰트 - Pretendard 연결 (CDN) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background-color: #f8f9fa; /* 차분한 배경색 */
+    color: #212529;           /* 가독성 높은 텍스트 */
+}
+
+.navbar {
+    background-color: #0047AB !important; /* 신뢰의 네이비 블루 */
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 15px 0; /* 높이 조절 */
+}
+
+.update-btn, .update-small-btn {
+    background-color: #0047AB; /* 신뢰의 코발트 블루 */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 마우스를 올렸을 때 살짝 더 진해지는 효과 */
+.update-btn:hover, .update-small-btn:hover {
+    background-color: #003580;
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 8px rgba(0, 71, 171, 0.2);
+}
+
+/* 입력창 포커스 시 강조색 */
+input:focus {
+    border-color: #0047AB;
+    box-shadow: 0 0 0 0.2rem rgba(0, 71, 171, 0.25);
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+/* 반투명 콘텐츠 박스 스타일 */
+.content-box-custom {
+    /* 1. 반투명 흰색 배경 (90% 불투명도) */
+    background-color: rgba(255, 255, 255, 0.9); 
+    
+    /* 2. 부드러운 그림자 효과 (요구사항 반영) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    
+    /* 3. 테두리 둥글게 */
+    border-radius: 15px; 
+    
+    /* 4. 너비 설정 (Bootstrap container와 함께 사용 시 자동 조절됨) */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* =========================================
+   2. 기본 정보 수정 페이지 (index.html) 전용
+   ========================================= */
+
+/* 메인 그리드 레이아웃 (사진/성향 2단 배치) */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+/* 프로필 사진: 원형 + 그림자 (요구사항 반영) */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* 원형 */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); /* 그림자 */
+    display: block;
+    margin: 0 auto 30px auto;
+}
+
+/* 자기소개 영역 */
+.bio-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+textarea {
+    flex-grow: 1;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* 오른쪽 섹션 투자 정보 스타일 */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.investment-item label {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+/* 공통 파란색 버튼 (Update, 저장 등) */
+.update-btn, .update-small-btn {
+    background-color: #00c3f0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.update-btn:hover { background-color: #00a0c7; }
+
+/* 회원 정보 섹션 (F302 요구사항) */
+.member-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.readonly-input {
+    background-color: #e9ecef; /* 편집 불가 회색 처리 */
+    cursor: not-allowed;
+}
+
+/* 1. 모든 입력 그룹의 기본 설정 */
+.info-group {
+    width: 100%;        /* 부모 너비를 100% 사용 */
+    margin-bottom: 20px;
+}
+
+/* 2. 입력창 + 버튼이 가로로 나열되는 컨테이너 */
+.input-with-btn, 
+.input-group-custom {
+    display: flex;      /* 가로 배치 */
+    width: 100%;        /* 부모 안에서 꽉 차게 */
+    gap: 10px;          /* 요소 사이 간격 */
+    align-items: center;
+}
+
+/* 3. ★ 핵심: 입력창(input)이 화면 비율에 따라 늘어나게 설정 */
+.input-with-btn input,
+.input-group-custom input,
+.bio-container textarea {
+    flex: 1;            /* 남는 모든 가로 공간을 차지함 (반응형의 핵심) */
+    min-width: 0;       /* 화면이 아주 작아질 때 삐져나가지 않게 방지 */
+    width: 100%;        /* 기본 너비 확보 */
+}
+
+/* 4. 자산/연봉 2단 배열 (화면 절반씩 꽉 채우기) */
+.flex-row {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+}
+
+.flex-row .input-group-custom {
+    flex: 1;            /* 자산과 연봉이 각각 50%씩 차지하며 늘어남 */
+}
+
+/* 5. F305: 모바일 대응 (화면이 좁아지면 위아래로 쌓기) */
+@media (max-width: 768px) {
+    .flex-row {
+        flex-direction: column; /* 가로에서 세로로 변경 */
+        gap: 10px;
+    }
+}
+
+/* =========================================
+   3. 포트폴리오 수정 페이지 (portfolio.html) 전용
+   ========================================= */
+
+/* Bootstrap과 충돌 방지 및 헤더 스타일 */
+.portfolio-header {
+    border-bottom: 2px solid #0d6efd;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* 슬라이더(Range) 커스텀 스타일 */
+.form-range::-webkit-slider-thumb {
+    background: #0d6efd;
+}
+
+/* =========================================
+   4. 반응형 레이아웃 처리
+   ========================================= */
+
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr; /* 모바일 1단 배치 */
+    }
+    
+    .container-custom {
+        padding: 1.5rem;
+    }
+
+    .flex-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

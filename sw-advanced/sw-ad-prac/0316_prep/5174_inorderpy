@@ -1,0 +1,46 @@
+import sys
+
+sys.stdin = open('5174.txt')
+
+# 이진 트리 노드에서 노드 N을 루트로 하는 서브 트리에 속한 노드의 개수를 출력하라.
+# 중위 순회 LVR
+
+def inover_traverse(node):
+    global cnt
+
+    if node != 0:
+        inover_traverse(left[node])
+
+        cnt += 1
+
+        inover_traverse(right[node])
+
+T = int(input())
+for tc in range(1, T + 1):
+    E, N = map(int, input().split())  # 간선의 수, 루트 노드
+    V = E + 1
+    edge_info = list(map(int, input().split()))
+
+    # 부모 - 자식 따로 저장을 해야 함
+    left = [0] * (V + 1)
+    right = [0] * (V + 1)
+
+    for i in range(E):
+
+        p = edge_info[i * 2]
+        c = edge_info[i * 2 + 1]
+        
+        if left[p] == 0:
+            left[p] = c
+        else:
+            right[p] = c
+
+    # 노드 개수를 세기 위한 전역 변수 초기화
+    cnt = 0
+
+    # N번 노드를 시작으로 중위 순회 시작
+    inover_traverse(N)
+
+
+                  
+    print(f'#{tc} {cnt}')
